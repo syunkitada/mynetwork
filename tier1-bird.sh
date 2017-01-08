@@ -16,7 +16,7 @@ protocol direct {
 }
 
 template bgp bgp_template {
-  local 10.1.0.11 as 65100;
+  local as 65100;
   multihop;
 
   hold time 240;
@@ -32,11 +32,19 @@ template bgp bgp_template {
 }
 
 protocol bgp Mesh_10_1_0_12 from bgp_template {
-    neighbor 10.1.0.12 as 65200;
+  neighbor 10.1.0.12 as 65200;
 }
 
 protocol bgp Mesh_10_1_0_13 from bgp_template {
-    neighbor 10.1.0.13 as 65300;
+  neighbor 10.1.0.13 as 65300;
+}
+
+protocol bgp Mesh_10_110_0_11 from bgp_template {
+  neighbor 10.110.0.11 as 65110;
+}
+
+protocol bgp Mesh_10_110_0_12 from bgp_template {
+  neighbor 10.110.0.12 as 65120;
 }
 EOT
 
@@ -57,7 +65,7 @@ protocol direct {
 }
 
 template bgp bgp_template {
-  local 10.1.0.12 as 65200;
+  local as 65200;
   multihop;
 
   hold time 240;
@@ -73,11 +81,19 @@ template bgp bgp_template {
 }
 
 protocol bgp Mesh_10_1_0_11 from bgp_template {
-    neighbor 10.1.0.11 as 65100;
+  neighbor 10.1.0.11 as 65100;
 }
 
 protocol bgp Mesh_10_1_0_13 from bgp_template {
-    neighbor 10.1.0.13 as 65300;
+  neighbor 10.1.0.13 as 65300;
+}
+
+protocol bgp Mesh_10_120_0_11 from bgp_template {
+  neighbor 10.120.0.11 as 65210;
+}
+
+protocol bgp Mesh_10_120_0_12 from bgp_template {
+  neighbor 10.120.0.12 as 65220;
 }
 EOT
 
@@ -98,7 +114,7 @@ protocol direct {
 }
 
 template bgp bgp_template {
-  local 10.1.0.13 as 65300;
+  local as 65300;
   multihop;
 
   hold time 240;
@@ -114,11 +130,11 @@ template bgp bgp_template {
 }
 
 protocol bgp Mesh_10_1_0_11 from bgp_template {
-    neighbor 10.1.0.11 as 65100;
+  neighbor 10.1.0.11 as 65100;
 }
 
 protocol bgp Mesh_10_1_0_12 from bgp_template {
-    neighbor 10.1.0.12 as 65200;
+  neighbor 10.1.0.12 as 65200;
 }
 EOT
 
