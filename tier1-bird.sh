@@ -5,7 +5,22 @@ router id 10.1.0.11;
 
 log syslog { debug, trace, info, remote, warning, error, auth, fatal, bug };
 log stderr all;
-log "tmp" all;
+log "/var/log/tier11-bird.log" all;
+
+# Configure synchronization between routing tables and kernel.
+protocol kernel {
+  learn;             # Learn all alien routes from the kernel
+  persist;           # Don't remove routes on bird shutdown
+  scan time 2;       # Scan kernel routing table every 2 seconds
+  import all;
+  export all;
+  graceful restart;  # Turn on graceful restart to reduce potential flaps in
+                     # routes when reloading BIRD configuration.  With a full
+                     # automatic mesh, there is no way to prevent BGP from
+                     # flapping since multiple nodes update their BGP
+                     # configuration at the same time, GR is not guaranteed to
+                     # work correctly in this scenario.
+}
 
 protocol device {
   scan time 10; # Scan interfaces every 10 seconds
@@ -29,6 +44,10 @@ template bgp bgp_template {
   error forget time 300;   # ... until this timeout expires)
   disable after error;     # Disable the protocol automatically when an error occurs
   next hop self;           # Disable next hop processing and always advertise our local address as nexthop
+
+  graceful restart;
+  import all;
+  export all;
 }
 
 protocol bgp Mesh_10_1_0_12 from bgp_template {
@@ -54,7 +73,22 @@ router id 10.1.0.12;
 
 log syslog { debug, trace, info, remote, warning, error, auth, fatal, bug };
 log stderr all;
-log "tmp" all;
+log "/var/log/tier12-bird.log" all;
+
+# Configure synchronization between routing tables and kernel.
+protocol kernel {
+  learn;             # Learn all alien routes from the kernel
+  persist;           # Don't remove routes on bird shutdown
+  scan time 2;       # Scan kernel routing table every 2 seconds
+  import all;
+  export all;
+  graceful restart;  # Turn on graceful restart to reduce potential flaps in
+                     # routes when reloading BIRD configuration.  With a full
+                     # automatic mesh, there is no way to prevent BGP from
+                     # flapping since multiple nodes update their BGP
+                     # configuration at the same time, GR is not guaranteed to
+                     # work correctly in this scenario.
+}
 
 protocol device {
   scan time 10; # Scan interfaces every 10 seconds
@@ -78,6 +112,10 @@ template bgp bgp_template {
   error forget time 300;   # ... until this timeout expires)
   disable after error;     # Disable the protocol automatically when an error occurs
   next hop self;           # Disable next hop processing and always advertise our local address as nexthop
+
+  graceful restart;
+  import all;
+  export all;
 }
 
 protocol bgp Mesh_10_1_0_11 from bgp_template {
@@ -103,7 +141,22 @@ router id 10.1.0.13;
 
 log syslog { debug, trace, info, remote, warning, error, auth, fatal, bug };
 log stderr all;
-log "tmp" all;
+log "/var/log/tier13-bird.log" all;
+
+# Configure synchronization between routing tables and kernel.
+protocol kernel {
+  learn;             # Learn all alien routes from the kernel
+  persist;           # Don't remove routes on bird shutdown
+  scan time 2;       # Scan kernel routing table every 2 seconds
+  import all;
+  export all;
+  graceful restart;  # Turn on graceful restart to reduce potential flaps in
+                     # routes when reloading BIRD configuration.  With a full
+                     # automatic mesh, there is no way to prevent BGP from
+                     # flapping since multiple nodes update their BGP
+                     # configuration at the same time, GR is not guaranteed to
+                     # work correctly in this scenario.
+}
 
 protocol device {
   scan time 10; # Scan interfaces every 10 seconds
@@ -127,6 +180,10 @@ template bgp bgp_template {
   error forget time 300;   # ... until this timeout expires)
   disable after error;     # Disable the protocol automatically when an error occurs
   next hop self;           # Disable next hop processing and always advertise our local address as nexthop
+
+  graceful restart;
+  import all;
+  export all;
 }
 
 protocol bgp Mesh_10_1_0_11 from bgp_template {

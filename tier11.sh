@@ -22,6 +22,7 @@ ip netns exec tier11 ip link set tier110-veth up
 
 ip netns add tier111
 ip link set tier111-veth netns tier111
+ip netns exec tier111 sysctl net.ipv4.ip_forward=1
 ip netns exec tier111 ip addr add dev tier111-veth 10.110.0.11/24
 ip netns exec tier111 ip link set lo up
 ip netns exec tier111 ip link set tier111-veth up
@@ -29,6 +30,7 @@ ip netns exec tier111 route add default gw 10.110.0.1
 
 ip netns add tier112
 ip link set tier112-veth netns tier112
+ip netns exec tier112 sysctl net.ipv4.ip_forward=1
 ip netns exec tier112 ip addr add dev tier112-veth 10.110.0.12/24
 ip netns exec tier112 ip link set lo up
 ip netns exec tier112 ip link set tier112-veth up
