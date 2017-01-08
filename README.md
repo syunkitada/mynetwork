@@ -1,5 +1,12 @@
 # mynetwork
 
+
+## network1
+``` bash
+# cd network1
+# ./all.sh
+```
+
 IP割り当て
 * グローバルIP   10.0.0.0/8
 * プライベートIP 192.168.0.0/16

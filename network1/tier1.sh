@@ -1,9 +1,5 @@
 #!/bin/sh
 
-yum install -y epel-release
-yum install -y bridge-utils bird vim tcpdump traceroute
-
-
 brctl addbr tier1-br
 ip link set tier1-br up
 

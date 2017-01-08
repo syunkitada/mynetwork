@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/public/third_party/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="/public/css/index.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+ 
+    <div class="container">
+      <div class="starter-template">
+        <h1>Bootstrap starter template</h1>
+        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+        <p><%= message %></p>
+      </div>
+    </div>
+
+    <div id="network-frame"></div>
+ 
+    <script>
+        var host = '<%= host %>';
+    </script>
+    <script type="text/javascript" src="/public/third_party/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="/public/third_party/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/public/third_party/d3/d3.min.js"></script>
+    <script type="text/javascript" src="http://<%= host %>:35730/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="http://<%= host %>:35729/livereload.js"></script>
+    <script type="text/javascript" src="/public/js/index.js"></script>
+  </body>
+</html>

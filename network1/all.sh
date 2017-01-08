@@ -1,5 +1,7 @@
 #!/bin/sh
 
+source ./package.sh
+
 source ./tier1.sh
 source ./tier11.sh
 source ./tier12.sh
