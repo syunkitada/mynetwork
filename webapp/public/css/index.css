@@ -1,8 +1,19 @@
-body {
-  padding-top: 50px;
+body {}
+
+#network-panel {
+  border: 1px solid #aaa;
 }
 
-.starter-template {
-  padding: 40px 15px;
-  text-align: center;
+.bgp-links line {
+  stroke: #399;
+  stroke-opacity: 0.6;
+}
+
+.nodes circle {
+  stroke: #ddd;
+  stroke-width: 1.5px;
+}
+
+.node-label {
+  fill: #337ab7;
 }

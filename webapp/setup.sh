@@ -14,9 +14,9 @@ cp -r share/* /usr/share/
 
 cd $pwd
 
-npm install -g grunt-cli
-npm install -g bower
-npm install -g node-dev
+sudo npm install -g grunt-cli
+sudo npm install -g bower
+sudo npm install -g node-dev
 npm install
 
 bower install

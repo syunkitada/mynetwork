@@ -9,6 +9,7 @@ module.exports = function(grunt) {
                 files: {
                     'public/js/index.js': [
                         'js_src/coffee/index/base.coffee',
+                        'js_src/coffee/index/render_network.coffee',
                     ],
                 }
             }
